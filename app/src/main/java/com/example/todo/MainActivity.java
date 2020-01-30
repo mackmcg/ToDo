@@ -42,11 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         loadItems();
 
-
         ItemsAdapter.OnLongClickListener onLongClickListener = new ItemsAdapter.OnLongClickListener(){
             @Override
             public void onItemLongClicked(int position) {
-                Log.i("MainActivity","TEST");
                 //Delete item from model
                 items.remove(position);
                 //Notify adapter
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 saveItems();
             }
         };
-        final ItemsAdapter itemsAdapter = new ItemsAdapter(items, onLongClickListener);
+        itemsAdapter = new ItemsAdapter(items, onLongClickListener);
         rvItems.setAdapter(itemsAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
